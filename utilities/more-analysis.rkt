@@ -29,10 +29,10 @@ and send it to my postgres db for further analysis.
                               (stringify (second vals))
                               (stringify (third vals))
                               (boolify (last vals))))
-      (query pgc (format "INSERT INTO GTP_A1 VALUES (~a)"
+      (query pgc (format "INSERT INTO GTP_EXERCISE VALUES (~a)"
                          (string-join conv-vals ", ")))
       (next-line-it file))))
 
-(call-with-input-file "analysis-results.txt" next-line-it)
+(call-with-input-file "exercise-results.txt" next-line-it)
 (disconnect pgc)
 
